@@ -1,0 +1,12 @@
+C:\Users\Administrator\tutorial\csharp\Project\KaroseriApp\KaroseriApp.Application\bin\Debug\net8.0\KaroseriApp.Application.deps.json
+C:\Users\Administrator\tutorial\csharp\Project\KaroseriApp\KaroseriApp.Application\bin\Debug\net8.0\KaroseriApp.Application.dll
+C:\Users\Administrator\tutorial\csharp\Project\KaroseriApp\KaroseriApp.Application\bin\Debug\net8.0\KaroseriApp.Application.pdb
+C:\Users\Administrator\tutorial\csharp\Project\KaroseriApp\KaroseriApp.Application\obj\Debug\net8.0\KaroseriApp.Application.csproj.AssemblyReference.cache
+C:\Users\Administrator\tutorial\csharp\Project\KaroseriApp\KaroseriApp.Application\obj\Debug\net8.0\KaroseriApp.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\tutorial\csharp\Project\KaroseriApp\KaroseriApp.Application\obj\Debug\net8.0\KaroseriApp.Application.AssemblyInfoInputs.cache
+C:\Users\Administrator\tutorial\csharp\Project\KaroseriApp\KaroseriApp.Application\obj\Debug\net8.0\KaroseriApp.Application.AssemblyInfo.cs
+C:\Users\Administrator\tutorial\csharp\Project\KaroseriApp\KaroseriApp.Application\obj\Debug\net8.0\KaroseriApp.Application.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\tutorial\csharp\Project\KaroseriApp\KaroseriApp.Application\obj\Debug\net8.0\KaroseriApp.Application.dll
+C:\Users\Administrator\tutorial\csharp\Project\KaroseriApp\KaroseriApp.Application\obj\Debug\net8.0\refint\KaroseriApp.Application.dll
+C:\Users\Administrator\tutorial\csharp\Project\KaroseriApp\KaroseriApp.Application\obj\Debug\net8.0\KaroseriApp.Application.pdb
+C:\Users\Administrator\tutorial\csharp\Project\KaroseriApp\KaroseriApp.Application\obj\Debug\net8.0\ref\KaroseriApp.Application.dll
