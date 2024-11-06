@@ -7,6 +7,11 @@ QuestPDF.Settings.License = LicenseType.Community;
 
 var builder = WebApplication.CreateBuilder(args);
 
+if (builder.Environment.IsDevelopment())
+{
+    builder.Configuration.AddUserSecrets<Program>();
+}
+
 string connectionString = builder.Configuration.GetConnectionString("SqlExpress")!;
 
 // Add services to the container.
@@ -16,6 +21,7 @@ builder.Services.AddSingleton<SqlConnectionFactory>();
 
 builder.Services.AddScoped<BuatSKRBHandler>();
 builder.Services.AddScoped<ExportSKRBToPDFHandler>();
+
 
 var app = builder.Build();
 
