@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/KaroseriApp.Web.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body>
@@ -28,6 +29,9 @@
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
+                    <button id="themeToggleBtn" class="btn btn-sm btn-outline-secondary me-md-3">
+                        <i id="themeIcon" class="bi bi-moon"></i>
+                    </button>
                 </div>
             </div>
         </nav>
@@ -46,6 +50,38 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const themeToggleButton = document.getElementById("themeToggleBtn");
+            const themeIcon = document.getElementById("themeIcon");
+            const currentTheme = localStorage.getItem("theme") || "light";
+            setTheme(currentTheme);
+
+            themeToggleButton.addEventListener("click", function () {
+                const newTheme = document.documentElement.getAttribute("data-bs-theme") === "dark" ? "light" : "dark";
+                setTheme(newTheme);
+            });
+
+            function setTheme(theme) {
+                document.documentElement.setAttribute("data-bs-theme", theme);
+                localStorage.setItem("theme", theme);
+
+                // Toggle icon
+                themeIcon.className = theme === "dark" ? "bi bi-moon" : "bi bi-sun";
+
+                // Update button classes for all buttons based on theme
+                document.querySelectorAll(".theme-toggle").forEach(button => {
+                    if (theme === "dark") {
+                        button.classList.add("btn-outline-light");
+                        button.classList.remove("btn-outline-dark");
+                    } else {
+                        button.classList.add("btn-outline-dark");
+                        button.classList.remove("btn-outline-light");
+                    }
+                });
+            }
+        });
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 
