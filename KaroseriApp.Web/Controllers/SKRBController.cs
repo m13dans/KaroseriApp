@@ -8,6 +8,12 @@ namespace KaroseriApp.Web.Controllers;
 
 public class SKRBController : Controller
 {
+    public ActionResult Buat()
+    {
+        return View();
+    }
+
+    [HttpPost]
     public async Task<ActionResult> ExportToPDF(
         SuratKeteranganRubahBentuk skrb,
         ExportSKRBToPDFHandler exportHandler
