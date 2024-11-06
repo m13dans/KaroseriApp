@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace KaroseriApp.Application.Data;
 
-public class ConnectionFactory(IConfiguration configuration)
+public class SqlConnectionFactory(IConfiguration configuration)
 {
     public IDbConnection Create() => new SqlConnection(configuration.GetConnectionString("SqlExpress"));
 }

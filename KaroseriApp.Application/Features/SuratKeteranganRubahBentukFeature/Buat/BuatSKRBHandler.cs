@@ -4,7 +4,7 @@ using KaroseriApp.Application.Domain;
 
 namespace KaroseriApp.Application.Features.SuratKeteranganRubahBentukFeature.Buat;
 
-public class BuatSKRBHandler(ConnectionFactory connection)
+public class BuatSKRBHandler(SqlConnectionFactory connection)
 {
     public async Task<int> Handle(SuratKeteranganRubahBentuk skrb)
     {

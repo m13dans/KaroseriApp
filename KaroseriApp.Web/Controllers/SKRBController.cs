@@ -8,12 +8,12 @@ namespace KaroseriApp.Web.Controllers;
 
 public class SKRBController : Controller
 {
-    public async Task<SuratKeteranganRubahBentuk> ExportToPDF(
+    public async Task<ActionResult> ExportToPDF(
         SuratKeteranganRubahBentuk skrb,
-        ExportSKRBToPDFHandler exportHandler,
-        BuatSKRBHandler buatSKRBHandler
+        ExportSKRBToPDFHandler exportHandler
         )
     {
-        throw new();
+        await exportHandler.Handle(skrb);
+        return Ok();
     }
 }

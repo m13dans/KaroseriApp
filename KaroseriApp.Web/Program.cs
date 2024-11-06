@@ -1,4 +1,9 @@
 using KaroseriApp.Application.Data;
+using KaroseriApp.Application.Features.SuratKeteranganRubahBentukFeature.Buat;
+using KaroseriApp.Application.Features.SuratKeteranganRubahBentukFeature.ExportPDF;
+using QuestPDF.Infrastructure;
+
+QuestPDF.Settings.License = LicenseType.Community;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,7 +12,10 @@ string connectionString = builder.Configuration.GetConnectionString("SqlExpress"
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddSingleton<ConnectionFactory>();
+builder.Services.AddSingleton<SqlConnectionFactory>();
+
+builder.Services.AddScoped<BuatSKRBHandler>();
+builder.Services.AddScoped<ExportSKRBToPDFHandler>();
 
 var app = builder.Build();
 
