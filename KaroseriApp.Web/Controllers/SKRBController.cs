@@ -14,12 +14,25 @@ public class SKRBController : Controller
     }
 
     [HttpPost]
-    public async Task<ActionResult> ExportToPDF(
+    public ActionResult GeneratePDF(
         SuratKeteranganRubahBentuk skrb,
         ExportSKRBToPDFHandler exportHandler
         )
     {
-        await exportHandler.Handle(skrb);
-        return Ok();
+        byte[] pdf = exportHandler.Handle(skrb);
+        var base64StringPdf = Convert.ToBase64String(pdf);
+        return Json(new { base64StringPdf });
     }
+
+    [HttpGet]
+    public IActionResult PreviewPDF()
+    {
+        if (TempData["PDFData"] is string base64PdfData)
+        {
+            byte[] pdfData = Convert.FromBase64String(base64PdfData);
+            return File(pdfData, "application/pdf");
+        }
+        return NotFound();
+    }
+
 }

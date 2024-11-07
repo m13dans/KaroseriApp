@@ -1,93 +1,124 @@
 @model SuratKeteranganRubahBentuk
 
-<div class=" col-md-6">
+@{
+    ViewData["Title"] = "Buat SKRB";
+}
 
-    <form asp-controller="SKRB" asp-action="ExportToPDF">
+<div class="d-md-flex gap-4">
+    <div class=" col-md-6 mb-3">
+        <form id="pdfForm" asp-controller="SKRB" asp-action="ExportToPDF">
 
-        @* <div class="mb-3">
-        <label class="form-label" asp-for="@Model.NomorSurat">Nomor Surat</label>
-        <div class="input-group">
-        <span class="input-group-text text-muted">No. </span>
-        <input type="text" class="form-control" asp-for="@Model.NomorSurat" placeholder="JS001/II/2024" />
-        </div>
-        </div> *@
+            <div class="mb-3">
+                <label class="form-label" asp-for="@Model.NomorMesin">Nomor Mesin</label>
+                <input type="text" class="form-control" asp-for="@Model.NomorMesin" placeholder="" />
+            </div>
 
-        <div class="mb-3">
-            <label class="form-label" asp-for="@Model.NomorMesin">Nomor Mesin</label>
-            <input type="text" class="form-control" asp-for="@Model.NomorMesin" placeholder="" />
-        </div>
+            <div class="mb-3">
+                <label class="form-label" asp-for="@Model.MerkKendaraan">Merk Kendaraan</label>
+                <input type="text" class="form-control" asp-for="@Model.MerkKendaraan" placeholder="" />
+                <small class="text-muted">Contoh : MITSUBISHI TRUCK FE HD N 4x2 M/T</small>
+            </div>
 
-        <div class="mb-3">
-            <label class="form-label" asp-for="@Model.MerkKendaraan">Merk Kendaraan</label>
-            <input type="text" class="form-control" asp-for="@Model.MerkKendaraan" placeholder="" />
-            <small class="text-muted">Contoh : MITSUBISHI TRUCK FE HD N 4x2 M/T</small>
-        </div>
+            <div class="mb-3">
+                <label class="form-label" asp-for="@Model.TahunPembuatan">Tahun Pembuatan</label>
+                <input type="number" class="form-control tahun-pembuatan" asp-for="@Model.TahunPembuatan" />
+            </div>
 
-        <div class="mb-3">
-            <label class="form-label" asp-for="@Model.TahunPembuatan">Tahun Pembuatan</label>
-            <input type="number" class="form-control tahun-pembuatan" asp-for="@Model.TahunPembuatan" />
-        </div>
+            <div class="mb-3">
+                <label class="form-label" asp-for="@Model.NomorChasis">Nomor Chasis</label>
+                <input type="text" class="form-control" asp-for="@Model.NomorChasis" />
+            </div>
 
-        <div class="mb-3">
-            <label class="form-label" asp-for="@Model.NomorChasis">Nomor Chasis</label>
-            <input type="text" class="form-control" asp-for="@Model.NomorChasis" />
-        </div>
+            <div class="mb-3">
+                <label class="form-label" asp-for="@Model.NomorPolisi">Nomor Polisi</label>
+                <input type="text" class="form-control" asp-for="@Model.NomorPolisi" />
+            </div>
 
-        <div class="mb-3">
-            <label class="form-label" asp-for="@Model.NomorPolisi">Nomor Polisi</label>
-            <input type="text" class="form-control" asp-for="@Model.NomorPolisi" />
-        </div>
+            <div class="mb-3">
+                <label class="form-label" asp-for="@Model.NamaPemilik">Nama Pemilik</label>
+                <input type="text" class="form-control" asp-for="@Model.NamaPemilik" />
+            </div>
 
-        <div class="mb-3">
-            <label class="form-label" asp-for="@Model.NamaPemilik">Nama Pemilik</label>
-            <input type="text" class="form-control" asp-for="@Model.NamaPemilik" />
-        </div>
+            <div class="mb-3">
+                <label class="form-label" asp-for="@Model.AlamatPemilik">Alamat Pemilik</label>
+                <input type="text" class="form-control" asp-for="@Model.AlamatPemilik" />
+            </div>
 
-        <div class="mb-3">
-            <label class="form-label" asp-for="@Model.AlamatPemilik">Alamat Pemilik</label>
-            <input type="text" class="form-control" asp-for="@Model.AlamatPemilik" />
-        </div>
+            <div class="mb-3">
+                <label class="form-label" asp-for="@Model.WarnaSebelumnya">Warna Sebelumnya</label>
+                <input type="text" class="form-control" asp-for="@Model.WarnaSebelumnya" />
+            </div>
 
-        <div class="mb-3">
-            <label class="form-label" asp-for="@Model.WarnaSebelumnya">Warna Sebelumnya</label>
-            <input type="text" class="form-control" asp-for="@Model.WarnaSebelumnya" />
-        </div>
+            <div class="mb-3">
+                <label class="form-label" asp-for="@Model.WarnaSetelahDirubah">Warna Setelah Dirubah</label>
+                <input type="text" class="form-control" asp-for="@Model.WarnaSetelahDirubah" />
+            </div>
 
-        <div class="mb-3">
-            <label class="form-label" asp-for="@Model.WarnaSetelahDirubah">Warna Setelah Dirubah</label>
-            <input type="text" class="form-control" asp-for="@Model.WarnaSetelahDirubah" />
-        </div>
+            <div class="mb-3">
+                <label class="form-label" asp-for="@Model.ModelKendaraan">Model Kendaraan</label>
+                <input type="text" class="form-control" asp-for="@Model.ModelKendaraan" />
+            </div>
 
-        <div class="mb-3">
-            <label class="form-label" asp-for="@Model.ModelKendaraan">Model Kendaraan</label>
-            <input type="text" class="form-control" asp-for="@Model.ModelKendaraan" />
-        </div>
+            <div class="mb-3">
+                <label class="form-label" asp-for="@Model.TanggalSuratDibuat">Tanggal Surat Dibuat</label>
+                <input type="text" class="form-control" asp-for="@Model.TanggalSuratDibuat" />
+            </div>
 
-        <div class="mb-3">
-            <label class="form-label" asp-for="@Model.TanggalSuratDibuat">Tanggal Surat Dibuat</label>
-            <input type="text" class="form-control" asp-for="@Model.TanggalSuratDibuat" />
-        </div>
+            <div class="mb-3">
+                <label class="form-label" asp-for="@Model.TempatSuratDiBuat">Tempat Surat Dibuat</label>
+                <input type="text" class="form-control" asp-for="@Model.TempatSuratDiBuat" />
+            </div>
 
-        <div class="mb-3">
-            <label class="form-label" asp-for="@Model.TempatSuratDiBuat">Tempat Surat Dibuat</label>
-            <input type="text" class="form-control" asp-for="@Model.TempatSuratDiBuat" />
-        </div>
+            <div class="mb-3">
+                <label class="form-label" asp-for="@Model.DiTandaTanganiOleh">Ditandatangai oleh</label>
+                <input type="text" class="form-control" asp-for="@Model.DiTandaTanganiOleh" />
+            </div>
 
-        <div class="mb-3">
-            <label class="form-label" asp-for="@Model.DiTandaTanganiOleh">Ditandatangai oleh</label>
-            <input type="text" class="form-control" asp-for="@Model.DiTandaTanganiOleh" />
-        </div>
+            <div class="mb-3">
+                <label class="form-label" asp-for="@Model.JabatanPenandaTangan">Jabatan</label>
+                <input type="text" class="form-control" asp-for="@Model.JabatanPenandaTangan" />
+            </div>
 
-        <div class="mb-3">
-            <label class="form-label" asp-for="@Model.JabatanPenandaTangan">Jabatan</label>
-            <input type="text" class="form-control" asp-for="@Model.JabatanPenandaTangan" />
-        </div>
-
-        <input type="submit" value="Buat PDF">
-    </form>
+            <div class="d-flex gap-2">
+                <input id="generatePdfBtn" class="btn btn-outline-light" type="submit" value="Buat PDF">
+                <input id="downloadPdfBtn" class="btn btn-outline-light" type="submit" value="Download PDF">
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <iframe id="pdfPreview" width="100%" height="600px"></iframe>
+    </div>
 </div>
 
-@{
+@section Scripts {
     <script>
+        $(document).ready(function () {
+            $("#pdfForm").on("submit", function (e) {
+                e.preventDefault(); // Prevent the form from submitting normally
+
+                // Serialize form data
+                var formData = new FormData(this);
+
+                $.ajax({
+                    url: "@Url.Action("GeneratePDF", "SKRB")",
+                    type: "POST",
+                    data: formData,
+                    contentType: false, // Required for FormData
+                    processData: false, // Required for FormData
+                    success: function (response) {
+                        debugger
+                        if (response.base64StringPdf) {
+                            // Display the PDF in the iframe
+                            $("#pdfPreview").attr("src", "data:application/pdf;base64," + response.base64StringPdf);
+                        } else {
+                            console.error("PDF data not received.");
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Error:", error);
+                    }
+                });
+            });
+        });
     </script>
 }

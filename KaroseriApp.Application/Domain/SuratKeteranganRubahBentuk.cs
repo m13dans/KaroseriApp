@@ -4,7 +4,7 @@ public class SuratKeteranganRubahBentuk
 {
     public int Id { get; set; }
     public required string NomorSurat { get; set; } = $"No. JS000/II/{DateTime.Now.Year}";
-    public required string NamaPerusahaanPenerbitSKRB { get; set; } = "Jaya Saputra";
+    public required string NamaPerusahaanPenerbitSKRB { get; set; } = "JAYA SAPUTRA";
     public required string NomorMesin { get; set; }
     public required string MerkKendaraan { get; set; }
     public required string TahunPembuatan { get; set; }
