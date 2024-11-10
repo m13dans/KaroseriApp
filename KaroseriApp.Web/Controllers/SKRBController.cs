@@ -14,14 +14,14 @@ public class SKRBController : Controller
     }
 
     [HttpPost]
-    public ActionResult GeneratePDF(
+    public string GeneratePDF(
         SuratKeteranganRubahBentuk skrb,
         ExportSKRBToPDFHandler exportHandler
         )
     {
-        byte[] pdf = exportHandler.Handle(skrb);
+        byte[] pdf = ExportSKRBToPDFHandler.Handle(skrb);
         var base64StringPdf = Convert.ToBase64String(pdf);
-        return Json(new { base64StringPdf });
+        return base64StringPdf;
     }
 
     [HttpGet]

@@ -11,22 +11,27 @@
             <div class="mb-3">
                 <label class="form-label" asp-for="@Model.NomorMesin">Nomor Mesin</label>
                 <input type="text" class="form-control" asp-for="@Model.NomorMesin" placeholder="" />
+                <span class="text-danger" asp-validation-for="@Model.NomorMesin"></span>
             </div>
 
             <div class="mb-3">
                 <label class="form-label" asp-for="@Model.MerkKendaraan">Merk Kendaraan</label>
                 <input type="text" class="form-control" asp-for="@Model.MerkKendaraan" placeholder="" />
                 <small class="text-muted">Contoh : MITSUBISHI TRUCK FE HD N 4x2 M/T</small>
+                <br>
+                <span class="text-danger" asp-validation-for="@Model.MerkKendaraan"></span>
             </div>
 
             <div class="mb-3">
                 <label class="form-label" asp-for="@Model.TahunPembuatan">Tahun Pembuatan</label>
                 <input type="number" class="form-control tahun-pembuatan" asp-for="@Model.TahunPembuatan" />
+                <span class="text-danger" asp-validation-for="@Model.TahunPembuatan"></span>
             </div>
 
             <div class="mb-3">
                 <label class="form-label" asp-for="@Model.NomorChasis">Nomor Chasis</label>
                 <input type="text" class="form-control" asp-for="@Model.NomorChasis" />
+                <span class="text-danger" asp-validation-for="@Model.NomorChasis"></span>
             </div>
 
             <div class="mb-3">
@@ -52,16 +57,18 @@
             <div class="mb-3">
                 <label class="form-label" asp-for="@Model.WarnaSetelahDirubah">Warna Setelah Dirubah</label>
                 <input type="text" class="form-control" asp-for="@Model.WarnaSetelahDirubah" />
+                <span class="text-danger" asp-validation-for="@Model.WarnaSetelahDirubah"></span>
             </div>
 
             <div class="mb-3">
                 <label class="form-label" asp-for="@Model.ModelKendaraan">Model Kendaraan</label>
                 <input type="text" class="form-control" asp-for="@Model.ModelKendaraan" />
+                <span class="text-danger" asp-validation-for="@Model.ModelKendaraan"></span>
             </div>
 
             <div class="mb-3">
                 <label class="form-label" asp-for="@Model.TanggalSuratDibuat">Tanggal Surat Dibuat</label>
-                <input type="text" class="form-control" asp-for="@Model.TanggalSuratDibuat" />
+                <input type="date" class="form-control" asp-for="@Model.TanggalSuratDibuat" />
             </div>
 
             <div class="mb-3">
@@ -91,10 +98,17 @@
 </div>
 
 @section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
     <script>
         $(document).ready(function () {
             $("#pdfForm").on("submit", function (e) {
                 e.preventDefault(); // Prevent the form from submitting normally
+
+                debugger
+                if (!$(this).valid()) {
+                    return;
+                }
 
                 // Serialize form data
                 var formData = new FormData(this);
@@ -107,9 +121,9 @@
                     processData: false, // Required for FormData
                     success: function (response) {
                         debugger
-                        if (response.base64StringPdf) {
+                        if (response) {
                             // Display the PDF in the iframe
-                            $("#pdfPreview").attr("src", "data:application/pdf;base64," + response.base64StringPdf);
+                            $("#pdfPreview").attr("src", "data:application/pdf;base64," + response);
                         } else {
                             console.error("PDF data not received.");
                         }
