@@ -103,12 +103,12 @@
     <script>
         $(document).ready(function () {
             $("#pdfForm").on("submit", function (e) {
-                e.preventDefault(); // Prevent the form from submitting normally
+                @* e.preventDefault(); // Prevent the form from submitting normally
 
                 debugger
                 if (!$(this).valid()) {
                     return;
-                }
+                } *@
 
                 // Serialize form data
                 var formData = new FormData(this);
