@@ -87,8 +87,8 @@
             </div>
 
             <div class="d-flex gap-2">
-                <input id="generatePdfBtn" class="btn btn-outline-light" type="submit" value="Buat PDF">
-                <input id="downloadPdfBtn" class="btn btn-outline-light" type="submit" value="Download PDF">
+                <input id="generatePdfBtn" class="btn btn-outline-light btn-theme" type="submit" value="Buat PDF">
+                <input id="downloadPdfBtn" class="btn btn-outline-light btn-theme" type="submit" value="Download PDF">
             </div>
         </form>
     </div>
@@ -103,7 +103,7 @@
     <script>
         $(document).ready(function () {
             $("#pdfForm").on("submit", function (e) {
-                e.preventDefault(); // Prevent the form from submitting normally
+                e.preventDefault();
 
                 debugger
                 if (!$(this).valid()) {

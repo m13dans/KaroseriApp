@@ -1,25 +1,25 @@
 IF NOT EXISTS (
     SELECT * FROM sys.objects
-    WHERE object_id = OBJECT_ID(N'[dbo].Tabel_Surat_Keterangan_Rubah_Bentuk') AND type in (N'U')
+    WHERE object_id = OBJECT_ID(N'[dbo].trans_skrb') AND type in (N'U')
 )
 BEGIN
-    create table Biodata (
-        Id INT PRIMARY KEY IDENTITY(1, 1),
-        Nomor_Surat VARCHAR(255),
-        Nama_Perusahaan_Penerbit_SKRB VARCHAR(255),
-        Nomor_Mesin VARCHAR(255),
-        Merk_Kendaraan VARCHAR(255),
-        Tahun_Pembuatan VARCHAR(255),
-        Nomor_Chasis VARCHAR(255),
-        Nomor_Polisi VARCHAR(255),
-        Nama_Pemilik VARCHAR(255),
-        Alamat_Pemilik VARCHAR(255),
-        Warna_Sebelumnya VARCHAR(255),
-        Warna_Setelah_Dirubah VARCHAR(255),
-        Model_Kendaraan VARCHAR(255),
-        Tanggal_Surat_Dibuat DATE(255),
-        Tempat_Surat_Dibuat VARCHAR(255),
-        DiTanda_Tangani_Oleh VARCHAR(255),
-        Jabatan_Pendanda_Tangan VARCHAR(255)
+    create table trans_skrb (
+        id_trans_skrb int primary key identity(1, 1),
+        nomor_surat varchar(100),
+        nama_perusahaan_penerbit_skrb varchar(100),
+        nomor_mesin varchar(100),
+        merk_kendaraan varchar(100),
+        tahun_pembuatan varchar(4),
+        nomor_chasis varchar(100),
+        nomor_polisi varchar(100),
+        nama_pemilik varchar(100),
+        alamat_pemilik varchar(100),
+        warna_sebelumnya varchar(100),
+        warna_setelah_dirubah varchar(100),
+        model_kendaraan varchar(100),
+        tanggal_surat_dibuat date,
+        tempat_surat_dibuat varchar(100),
+        ditandatangani varchar(100),
+        jabatan_pendandatangan varchar(100)
     )
 END
