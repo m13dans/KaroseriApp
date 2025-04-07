@@ -4,96 +4,125 @@
     ViewData["Title"] = "Buat SKRB";
 }
 
-<div class="d-md-flex gap-4">
-    <div class=" col-md-6 mb-3">
-        <form id="pdfForm" asp-controller="SKRB" asp-action="ExportToPDF">
+<form class="d-md-flex gap-4 mt-0" id="pdfForm" asp-controller="SKRB" asp-action="ExportToPDF">
+    <div class=" col-md-6 mb-2">
+        <div class="mb-2">
+            <label class="" asp-for="@Model.NomorMesin">Nomor Mesin</label>
+            <input type="text" class="form-control py-1" asp-for="@Model.NomorMesin" placeholder="" />
+            <span class="text-danger" asp-validation-for="@Model.NomorMesin"></span>
+        </div>
 
-            <div class="mb-3">
-                <label class="form-label" asp-for="@Model.NomorMesin">Nomor Mesin</label>
-                <input type="text" class="form-control" asp-for="@Model.NomorMesin" placeholder="" />
-                <span class="text-danger" asp-validation-for="@Model.NomorMesin"></span>
-            </div>
+        <div class="mb-2">
+            <label class="" asp-for="@Model.MerkKendaraan">Merk Kendaraan</label>
+            <input type="text" class="form-control py-1" asp-for="@Model.MerkKendaraan" placeholder="Contoh : MITSUBISHI TRUCK FE HD N 4x2 M/T" />
+            <span class="text-danger" asp-validation-for="@Model.MerkKendaraan"></span>
+        </div>
 
-            <div class="mb-3">
-                <label class="form-label" asp-for="@Model.MerkKendaraan">Merk Kendaraan</label>
-                <input type="text" class="form-control" asp-for="@Model.MerkKendaraan" placeholder="" />
-                <small class="text-muted">Contoh : MITSUBISHI TRUCK FE HD N 4x2 M/T</small>
-                <br>
-                <span class="text-danger" asp-validation-for="@Model.MerkKendaraan"></span>
-            </div>
+        <div class="mb-2">
+            <label class="" asp-for="@Model.TahunPembuatan">Tahun Pembuatan</label>
+            <input type="number" class="form-control py-1 tahun-pembuatan" asp-for="@Model.TahunPembuatan" />
+            <span class="text-danger" asp-validation-for="@Model.TahunPembuatan"></span>
+        </div>
 
-            <div class="mb-3">
-                <label class="form-label" asp-for="@Model.TahunPembuatan">Tahun Pembuatan</label>
-                <input type="number" class="form-control tahun-pembuatan" asp-for="@Model.TahunPembuatan" />
-                <span class="text-danger" asp-validation-for="@Model.TahunPembuatan"></span>
-            </div>
+        <div class="mb-2">
+            <label class="" asp-for="@Model.NomorChasis">Nomor Chasis</label>
+            <input type="text" class="form-control py-1" asp-for="@Model.NomorChasis" />
+            <span class="text-danger" asp-validation-for="@Model.NomorChasis"></span>
+        </div>
 
-            <div class="mb-3">
-                <label class="form-label" asp-for="@Model.NomorChasis">Nomor Chasis</label>
-                <input type="text" class="form-control" asp-for="@Model.NomorChasis" />
-                <span class="text-danger" asp-validation-for="@Model.NomorChasis"></span>
-            </div>
+        <div class="mb-2">
+            <label class="" asp-for="@Model.NomorPolisi">Nomor Polisi</label>
+            <input type="text" class="form-control py-1" asp-for="@Model.NomorPolisi" />
+        </div>
 
-            <div class="mb-3">
-                <label class="form-label" asp-for="@Model.NomorPolisi">Nomor Polisi</label>
-                <input type="text" class="form-control" asp-for="@Model.NomorPolisi" />
-            </div>
+        <div class="mb-2">
+            <label class="" asp-for="@Model.NamaPemilik">Nama Pemilik</label>
+            <input type="text" class="form-control py-1" asp-for="@Model.NamaPemilik" />
+        </div>
 
-            <div class="mb-3">
-                <label class="form-label" asp-for="@Model.NamaPemilik">Nama Pemilik</label>
-                <input type="text" class="form-control" asp-for="@Model.NamaPemilik" />
-            </div>
+        <div class="mb-2">
+            <label class="" asp-for="@Model.AlamatPemilik">Alamat Pemilik</label>
+            <input type="text" class="form-control py-1" asp-for="@Model.AlamatPemilik" />
+        </div>
 
-            <div class="mb-3">
-                <label class="form-label" asp-for="@Model.AlamatPemilik">Alamat Pemilik</label>
-                <input type="text" class="form-control" asp-for="@Model.AlamatPemilik" />
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label" asp-for="@Model.WarnaSebelumnya">Warna Sebelumnya</label>
-                <input type="text" class="form-control" asp-for="@Model.WarnaSebelumnya" />
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label" asp-for="@Model.WarnaSetelahDirubah">Warna Setelah Dirubah</label>
-                <input type="text" class="form-control" asp-for="@Model.WarnaSetelahDirubah" />
-                <span class="text-danger" asp-validation-for="@Model.WarnaSetelahDirubah"></span>
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label" asp-for="@Model.ModelKendaraan">Model Kendaraan</label>
-                <input type="text" class="form-control" asp-for="@Model.ModelKendaraan" />
-                <span class="text-danger" asp-validation-for="@Model.ModelKendaraan"></span>
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label" asp-for="@Model.TanggalSuratDibuat">Tanggal Surat Dibuat</label>
-                <input type="date" class="form-control" asp-for="@Model.TanggalSuratDibuat" />
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label" asp-for="@Model.TempatSuratDiBuat">Tempat Surat Dibuat</label>
-                <input type="text" class="form-control" asp-for="@Model.TempatSuratDiBuat" />
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label" asp-for="@Model.DiTandaTanganiOleh">Ditandatangai oleh</label>
-                <input type="text" class="form-control" asp-for="@Model.DiTandaTanganiOleh" />
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label" asp-for="@Model.JabatanPenandaTangan">Jabatan</label>
-                <input type="text" class="form-control" asp-for="@Model.JabatanPenandaTangan" />
-            </div>
-
-            <div class="d-flex gap-2">
-                <input id="generatePdfBtn" class="btn btn-outline-light btn-theme" type="submit" value="Buat PDF">
-                <input id="downloadPdfBtn" class="btn btn-outline-light btn-theme" type="submit" value="Download PDF">
-            </div>
-        </form>
     </div>
     <div class="col-md-6">
-        <iframe id="pdfPreview" width="100%" height="600px"></iframe>
+        <div class="mb-2">
+            <label class="" asp-for="@Model.WarnaSebelumnya">Warna Sebelumnya</label>
+            <input type="text" class="form-control py-1" asp-for="@Model.WarnaSebelumnya" />
+        </div>
+
+        <div class="mb-2">
+            <label class="" asp-for="@Model.WarnaSetelahDirubah">Warna Setelah Dirubah</label>
+            <input type="text" class="form-control py-1" asp-for="@Model.WarnaSetelahDirubah" />
+            <span class="text-danger" asp-validation-for="@Model.WarnaSetelahDirubah"></span>
+        </div>
+
+        <div class="mb-2">
+            <label class="" asp-for="@Model.ModelKendaraan">Model Kendaraan</label>
+            <input type="text" class="form-control py-1" asp-for="@Model.ModelKendaraan" />
+            <span class="text-danger" asp-validation-for="@Model.ModelKendaraan"></span>
+        </div>
+
+        <div class="mb-2">
+            <label class="" asp-for="@Model.TanggalSuratDibuat">Tanggal Surat Dibuat</label>
+            <input type="date" class="form-control py-1" asp-for="@Model.TanggalSuratDibuat" />
+        </div>
+
+        <div class="mb-2">
+            <label class="" asp-for="@Model.TempatSuratDiBuat">Tempat Surat Dibuat</label>
+            <input type="text" class="form-control py-1" asp-for="@Model.TempatSuratDiBuat" />
+        </div>
+
+        <div class="mb-2">
+            <label class="" asp-for="@Model.DitandatanganiOleh">Ditandatangai oleh</label>
+            <input type="text" class="form-control py-1" asp-for="@Model.DitandatanganiOleh" />
+        </div>
+
+        <div class="mb-2">
+            <label class="" asp-for="@Model.JabatanPenandaTangan">Jabatan</label>
+            <input type="text" class="form-control py-1" asp-for="@Model.JabatanPenandaTangan" />
+        </div>
+
+
+
+        <div class="d-flex gap-2">
+            <button id="generatePdfBtn" class="btn btn-outline-light btn-theme" type="submit">
+                <span class="button-text">Buat PDF</span>
+                <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+            </button>
+        </div>
+
+    </div>
+</form>
+
+<div class="modal fade" id="popup" tabindex="-1">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">SKRB Preview</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0">
+                <iframe id="pdfPreview" style="height: 100%; width: 100%;"></iframe>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-light btn-theme" data-bs-dismiss="modal">Close</button>
+                <button id="downloadPdfBtn" type="button" class="btn btn-outline-light btn-theme">Download PDF</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Toast Notification HTML -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="downloadToast" class="toast align-items-center text-white bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                No PDF available to download
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
     </div>
 </div>
 
@@ -102,6 +131,9 @@
 
     <script>
         $(document).ready(function () {
+            let nomorSurat;
+            let pdfData;
+
             $("#pdfForm").on("submit", function (e) {
                 e.preventDefault();
 
@@ -110,8 +142,15 @@
                     return;
                 }
 
-                // Serialize form data
                 var formData = new FormData(this);
+
+                const btn = document.getElementById('generatePdfBtn');
+                const spinner = btn.querySelector('.spinner-border');
+                const buttonText = btn.querySelector('.button-text');
+
+                spinner.classList.remove('d-none');
+                buttonText.textContent = 'Membuat PDF...';
+                btn.disabled = true;
 
                 $.ajax({
                     url: "@Url.Action("GeneratePDF", "SKRB")",
@@ -122,17 +161,46 @@
                     success: function (response) {
                         debugger
                         if (response) {
-                            // Display the PDF in the iframe
-                            $("#pdfPreview").attr("src", "data:application/pdf;base64," + response);
+                            var popup = new bootstrap.Modal(document.getElementById('popup'));
+                            popup.show();
+
+                            $("#pdfPreview").attr("src", "data:application/pdf;base64," + response.pdfData);
+                            nomorSurat = response.nomorSurat;
                         } else {
                             console.error("PDF data not received.");
                         }
+
+                        spinner.classList.add('d-none');
+                        buttonText.textContent = 'Buat PDF';
+                        btn.disabled = false;
+
                     },
                     error: function (xhr, status, error) {
-                        console.error("Error:", error);
+                        console.error("Error:", xhr);
+
+                        spinner.classList.add('d-none');
+                        buttonText.textContent = 'Buat PDF';
+                        btn.disabled = false;
                     }
                 });
             });
+
+            document.getElementById('downloadPdfBtn').addEventListener('click', function() {
+                const iframe = document.getElementById('pdfPreview');
+
+                if(!iframe.src) {
+                    const toast = new bootstrap.Toast(document.getElementById('downloadToast'));
+                    toast.show();
+                    return;
+                }
+
+                const link = document.createElement('a');
+                link.href = iframe.src;
+                link.download = nomorSurat;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            })
         });
     </script>
 }

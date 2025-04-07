@@ -23,8 +23,9 @@ public class SuratKeteranganRubahBentuk
     public required string WarnaSetelahDirubah { get; set; }
     [Required(ErrorMessage = "Model Kendaraan Harus Diisi.")]
     public required string ModelKendaraan { get; set; }
-    public DateTime? TanggalSuratDibuat { get; set; } = DateTime.Now;
-    public string? TempatSuratDiBuat { get; set; } = "Sukabumi";
-    public string? DiTandaTanganiOleh { get; set; } = "Cucu Abdurachman";
+    public DateTime? TanggalSuratDibuat { get ; set; } 
+    [Required(ErrorMessage = "Tempat Surat Dibuat Harus Diisi.")]
+    public required string TempatSuratDiBuat { get; set; }
+    public string? DitandatanganiOleh { get; set; } = "Cucu Abdurachman";
     public string? JabatanPenandaTangan { get; set; } = "Direktur";
 }

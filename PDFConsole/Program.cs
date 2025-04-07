@@ -5,6 +5,7 @@ using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
 using System.Globalization;
+using System.Reflection;
 
 QuestPDF.Settings.License = LicenseType.Community;
 
@@ -18,7 +19,8 @@ var skrb = new SuratKeteranganRubahBentuk()
     NomorMesin = "4D34TT54724",
     NomorSurat = " No. JS041/II/2024",
     TahunPembuatan = 2024,
-    WarnaSetelahDirubah = "Kuning"
+    WarnaSetelahDirubah = "Kuning",
+    TempatSuratDiBuat = "Sukabumi"
 };
 
 var document = ConsolePDFHandler.Handle(skrb);
@@ -30,7 +32,9 @@ public class ConsolePDFHandler()
 {
     public static Document Handle(SuratKeteranganRubahBentuk skrb)
     {
-        var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "../KaroseriApp.Application/Images", "Logo_Jaya_Saputra.png");
+        var assemblyLocation = Path.GetDirectoryName(typeof(ExportSKRBToPDFHandler).Assembly.Location);
+        var path = "Images\\Logo_Jaya_Saputra.png";
+        var imagePath = Path.Combine(assemblyLocation!, path);
         var document = Document.Create(container =>
         {
             container.Page(page =>
@@ -120,7 +124,7 @@ public class ConsolePDFHandler()
                             text.Line(skrb.NamaPerusahaanPenerbitSKRB).LineHeight(2);
                             text.EmptyLine();
                             text.EmptyLine();
-                            text.Line(skrb.DiTandaTanganiOleh).LineHeight(1);
+                            text.Line(skrb.DitandatanganiOleh).LineHeight(1);
                             text.Line(skrb.JabatanPenandaTangan).LineHeight(1);
                         });
 

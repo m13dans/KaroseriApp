@@ -19,7 +19,7 @@ BEGIN
         model_kendaraan varchar(100),
         tanggal_surat_dibuat date,
         tempat_surat_dibuat varchar(100),
-        ditandatangani varchar(100),
-        jabatan_pendandatangan varchar(100)
+        ditandatangani_oleh varchar(100),
+        jabatan_penandatangan varchar(100)
     )
 END

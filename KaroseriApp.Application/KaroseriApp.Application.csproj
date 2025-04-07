@@ -18,5 +18,11 @@
 		<EmbeddedResource Include="Data/DbUpScripts/*.sql" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Update="Images\Logo_Jaya_Saputra.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+
 
 </Project>

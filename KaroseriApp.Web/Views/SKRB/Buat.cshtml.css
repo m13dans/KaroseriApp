@@ -1,0 +1,14 @@
+﻿#popup .modal-dialog {
+    height: 90vh;
+    max-height: 90vh;
+    margin: 5vh auto; /* Centers vertically with 5vh margin top/bottom */
+}
+
+#popup .modal-content {
+    height: 100%; /* Makes content fill the dialog */
+}
+
+#popup .modal-body {
+    height: calc(100% - 120px); /* Accounts for header/footer */
+    overflow-y: auto; /* Adds scroll if content exceeds height */
+}

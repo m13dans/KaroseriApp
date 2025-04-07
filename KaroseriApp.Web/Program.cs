@@ -1,6 +1,7 @@
 using KaroseriApp.Application.Data;
 using KaroseriApp.Application.Features.SuratKeteranganRubahBentukFeature.Buat;
 using KaroseriApp.Application.Features.SuratKeteranganRubahBentukFeature.ExportPDF;
+using KaroseriApp.Application.Features.SuratKeteranganRubahBentukFeature.Shared;
 using QuestPDF.Infrastructure;
 
 QuestPDF.Settings.License = LicenseType.Community;
@@ -21,6 +22,7 @@ builder.Services.AddSingleton<SqlConnectionFactory>();
 
 builder.Services.AddScoped<BuatSKRBHandler>();
 builder.Services.AddScoped<ExportSKRBToPDFHandler>();
+builder.Services.AddScoped<SharedSKRBFeature>();
 
 
 var app = builder.Build();

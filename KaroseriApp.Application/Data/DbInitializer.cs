@@ -1,4 +1,3 @@
-using System.Reflection;
 using DbUp;
 
 namespace KaroseriApp.Application.Data;
@@ -11,7 +10,7 @@ public class DbInitializer
 
         var upgrader = DeployChanges.To
             .SqlDatabase(connectionString)
-            .WithScriptsEmbeddedInAssembly(Assembly.GetExecutingAssembly())
+            .WithScriptsEmbeddedInAssembly(typeof(SqlConnectionFactory).Assembly)
             .WithTransaction()
             .LogToConsole()
             .Build();

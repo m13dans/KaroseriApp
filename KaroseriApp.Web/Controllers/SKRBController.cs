@@ -1,6 +1,4 @@
-using KaroseriApp.Application.Data;
 using KaroseriApp.Application.Domain;
-using KaroseriApp.Application.Features.SuratKeteranganRubahBentukFeature.Buat;
 using KaroseriApp.Application.Features.SuratKeteranganRubahBentukFeature.ExportPDF;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,14 +12,20 @@ public class SKRBController : Controller
     }
 
     [HttpPost]
-    public string GeneratePDF(
+    public async Task<ActionResult> GeneratePDFAsync(
         SuratKeteranganRubahBentuk skrb,
-        ExportSKRBToPDFHandler exportHandler
+        [FromServices]ExportSKRBToPDFHandler exportHandler
         )
     {
-        byte[] pdf = ExportSKRBToPDFHandler.Handle(skrb);
-        var base64StringPdf = Convert.ToBase64String(pdf);
-        return base64StringPdf;
+        (byte[], string) pdfByteAndDocNo = await exportHandler.Handle(skrb);
+        string base64StringPdf = Convert.ToBase64String(pdfByteAndDocNo.Item1);
+        string docno = pdfByteAndDocNo.Item2;
+
+        return Json(new
+        {
+            pdfData = base64StringPdf,
+            nomorSurat = docno
+        });
     }
 
     [HttpGet]
