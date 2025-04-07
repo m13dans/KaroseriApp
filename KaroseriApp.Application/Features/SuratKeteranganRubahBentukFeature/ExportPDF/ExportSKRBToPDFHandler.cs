@@ -193,7 +193,7 @@ public class ExportSKRBToPDFHandler(SharedSKRBFeature sharedSKRBFeature, SqlConn
                     skrb.WarnaSebelumnya,
                     skrb.WarnaSetelahDirubah,
                     skrb.ModelKendaraan,
-                    skrb.TanggalSuratDibuat,
+                    TanggalSuratDibuat = skrb.TanggalSuratDibuat ?? DateTime.UtcNow,
                     skrb.TempatSuratDiBuat,
                     skrb.DitandatanganiOleh,
                     skrb.JabatanPenandaTangan
